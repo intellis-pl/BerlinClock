@@ -1,6 +1,5 @@
-package clock;
+package main.java.clock;
 
-import main.java.clock.BerlinClockMinute;
 import org.junit.Before;
 import org.junit.Test;
 

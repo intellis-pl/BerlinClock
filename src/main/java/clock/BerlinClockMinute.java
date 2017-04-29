@@ -4,7 +4,7 @@ package main.java.clock;
 import main.java.dto.BerlinClockTimeDTO;
 
 import static main.java.helpers.LampSwitchManager.*;
-import static main.java.helpers.LampConfig.*;
+import static main.java.config.LampConfig.*;
 
 public final class BerlinClockMinute implements TimeConverter {
 
@@ -24,7 +24,7 @@ public final class BerlinClockMinute implements TimeConverter {
     }
 
     private String switchOnTopLamps(Integer topOnLamps) {
-        StringBuffer  top = new StringBuffer(MINUTE_TOP_LAMPS);
+        StringBuilder  top = new StringBuilder(MINUTE_TOP_LAMPS);
         for(int i = 1; i <= LAMPS_SIZE_FOR_MINUTES; i++) {
             top = switchTopLampsForMinutes(i, topOnLamps, top);
         }
@@ -32,7 +32,7 @@ public final class BerlinClockMinute implements TimeConverter {
     }
 
     private String switchOnYellowLamps(Integer bottomOnLamps) {
-        StringBuffer  bottom = new StringBuffer(LAMPS);
+        StringBuilder  bottom = new StringBuilder(LAMPS);
         for(int i = 1; i <= LAMPS_SIZE; i++) {
             bottom = switchBottomLampsForMinutes(i, bottomOnLamps, bottom);
         }

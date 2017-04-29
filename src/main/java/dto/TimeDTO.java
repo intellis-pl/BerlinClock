@@ -9,7 +9,6 @@ public class TimeDTO {
     private final String hour;
     private final String minute;
     private final String second;
-    private Map<TimeUnit, String> timeUnitMap;
 
     private TimeDTO(Builder builder) {
         this.hour = builder.hour;

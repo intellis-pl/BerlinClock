@@ -1,52 +1,52 @@
 package main.java.helpers;
 
-import static main.java.helpers.LampColorConfig.*;
+import static main.java.config.LampColorConfig.*;
 
 
 public final class LampColorManager {
 
-    public static StringBuffer switchRedLamp(Integer currentIteration, Integer topOnLamps, StringBuffer  top) {
-        if(isRedColorLamp(currentIteration, topOnLamps)) {
-            return switchLampFor(currentIteration, switchOnRedColor(), top);
+    public static StringBuilder switchRedLampForMinutes(Integer currentIteration, Integer topOnLamps, StringBuilder  top) {
+        if(isRedColorLampForMinutes(currentIteration, topOnLamps)) {
+            return switchLamp(currentIteration, switchOnRedColor(), top);
         }
         return top;
     }
 
-    public static StringBuffer switchYellowLamp(Integer currentIteration, Integer topOnLamps, StringBuffer  top) {
-        if(isYellowColorLampOnTop(currentIteration, topOnLamps)) {
-            return switchLampFor(currentIteration, switchOnYellowColor(), top);
+    public static StringBuilder switchYellowLamp(Integer currentIteration, Integer topOnLamps, StringBuilder  top) {
+        if(canSwitchOnLamp(currentIteration, topOnLamps)) {
+            return switchLamp(currentIteration, switchOnYellowColor(), top);
         }
         return top;
     }
 
-    public static StringBuffer switchRedLampForHours(Integer currentIteration, Integer topOnLamps, StringBuffer  top) {
-        if(isYellowColorLampOnTop(currentIteration, topOnLamps)) {
-            return switchLampFor(currentIteration, switchOnRedColor(), top);
+    public static StringBuilder switchRedLampForHours(Integer currentIteration, Integer topOnLamps, StringBuilder  top) {
+        if(canSwitchOnLamp(currentIteration, topOnLamps)) {
+            return switchLamp(currentIteration, switchOnRedColor(), top);
         }
         return top;
     }
 
-    public static StringBuffer switchOffLamp(int currentIteration, Integer topOnLamps, StringBuffer  top) {
-        if(isSwitchOffLamp(currentIteration, topOnLamps)) {
-            return switchLampFor(currentIteration, switchOffColor(), top);
+    public static StringBuilder switchOffLamp(int currentIteration, Integer topOnLamps, StringBuilder  top) {
+        if(canSwitchOffLamp(currentIteration, topOnLamps)) {
+            return switchLamp(currentIteration, switchOffColor(), top);
         }
         return top;
     }
 
-    public static StringBuffer switchLampFor(Integer currentIteration, String lampColor, StringBuffer top) {
+    public static StringBuilder switchLamp(Integer currentIteration, String lampColor, StringBuilder top) {
         return top.replace(currentIteration - 1, currentIteration, lampColor);
     }
 
-    public static boolean isSwitchOffLamp(int currentIteration, Integer topOnLamps) {
-        return !isRedColorLamp(currentIteration, topOnLamps)
-                && !isYellowColorLampOnTop(currentIteration, topOnLamps);
-    }
-
-    public static boolean isRedColorLamp(Integer currentIteration, Integer lampsOn) {
+    public static boolean isRedColorLampForMinutes(Integer currentIteration, Integer lampsOn) {
         return currentIteration % 3 == 0 && currentIteration <= lampsOn;
     }
 
-    public static boolean isYellowColorLampOnTop(Integer currentIteration, Integer lampsOn) {
+    public static boolean canSwitchOnLamp(Integer currentIteration, Integer lampsOn) {
         return currentIteration <= lampsOn;
+    }
+
+    public static boolean canSwitchOffLamp(int currentIteration, Integer topOnLamps) {
+        return !isRedColorLampForMinutes(currentIteration, topOnLamps)
+                && !canSwitchOnLamp(currentIteration, topOnLamps);
     }
 }

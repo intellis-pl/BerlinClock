@@ -1,7 +1,7 @@
 package main.java.clock;
 
 
-import static main.java.helpers.LampColorConfig.*;
+import static main.java.config.LampColorConfig.*;
 
 public final class BerlinClockSecond implements TimeConverter {
     public String convertTime(String textSeconds) {

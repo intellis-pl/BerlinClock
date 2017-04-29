@@ -1,9 +1,7 @@
-package clock;
+package main.java.clock;
 
-import main.java.clock.BerlinClockHour;
 import org.junit.Before;
 import org.junit.Test;
-
 
 import static org.junit.Assert.assertEquals;
 
