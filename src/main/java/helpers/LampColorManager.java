@@ -33,19 +33,19 @@ public final class LampColorManager {
         return top;
     }
 
-    public static StringBuilder switchLamp(Integer currPosition, String lampColor, StringBuilder top) {
+    private static StringBuilder switchLamp(Integer currPosition, String lampColor, StringBuilder top) {
         return top.replace(currPosition - 1, currPosition, lampColor);
     }
 
-    public static boolean isRedColorLampForMinutes(Integer currPosition, Integer lampsOn) {
+    private static boolean isRedColorLampForMinutes(Integer currPosition, Integer lampsOn) {
         return currPosition % 3 == 0 && currPosition <= lampsOn;
     }
 
-    public static boolean canSwitchOnLamp(Integer currPosition, Integer lampsOn) {
+    private static boolean canSwitchOnLamp(Integer currPosition, Integer lampsOn) {
         return currPosition <= lampsOn;
     }
 
-    public static boolean canSwitchOffLamp(int currPosition, Integer topOnLamps) {
+    private static boolean canSwitchOffLamp(int currPosition, Integer topOnLamps) {
         return !isRedColorLampForMinutes(currPosition, topOnLamps)
                 && !canSwitchOnLamp(currPosition, topOnLamps);
     }
