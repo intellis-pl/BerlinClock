@@ -1,10 +1,6 @@
 package main.java.dto;
 
 
-import main.java.enums.TimeUnit;
-
-import java.util.Map;
-
 public class TimeDTO {
     private final String hour;
     private final String minute;
