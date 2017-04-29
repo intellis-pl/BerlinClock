@@ -11,9 +11,9 @@ public class TimeUnitDTO {
 
     public TimeUnitDTO(TimeDTO parsedTime) {
         timeUnitMap = new HashMap<>();
+        timeUnitMap.put(TimeUnit.SECONDS, parsedTime.getSecond());
         timeUnitMap.put(TimeUnit.HOURS, parsedTime.getHour());
         timeUnitMap.put(TimeUnit.MINUTES, parsedTime.getMinute());
-        timeUnitMap.put(TimeUnit.SECONDS, parsedTime.getSecond());
     }
 
     public String getUnit(TimeUnit timeUnit) {
