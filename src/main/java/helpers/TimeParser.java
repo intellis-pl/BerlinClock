@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 public final class TimeParser {
 
-    public TimeDTO parse(String time) throws DateTimeException {
+    public static TimeDTO parse(String time) throws DateTimeException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime date = LocalTime.parse(time, formatter);
         return new TimeDTO.Builder()

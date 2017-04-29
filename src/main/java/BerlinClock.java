@@ -16,9 +16,8 @@ public class BerlinClock {
     private final static Logger LOGGER = Logger.getLogger(BerlinClock.class);
 
     public static void main(String[] args) {
-        TimeParser parser = new TimeParser();
         try {
-            TimeDTO parsedTime = parser.parse(args[0]);
+            TimeDTO parsedTime = TimeParser.parse(args[0]);
             LOGGER.info("Current time (hh:mm:ss): " + parsedTime.toString());
 
             TimeUnitDTO timeManager = new TimeUnitDTO(parsedTime);

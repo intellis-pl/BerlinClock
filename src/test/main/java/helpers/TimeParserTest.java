@@ -13,10 +13,9 @@ public class TimeParserTest {
     public void shouldParseTimeForMidnight() {
         //given
         String time = "00:00:00";
-        TimeParser parser = new TimeParser();
 
         //when
-        TimeDTO parsedTime = parser.parse(time);
+        TimeDTO parsedTime = TimeParser.parse(time);
 
         //then
         assertEquals("0", parsedTime.getHour());
@@ -28,10 +27,9 @@ public class TimeParserTest {
     public void shouldParseTime() {
         //given
         String time = "18:32:17";
-        TimeParser parser = new TimeParser();
 
         //when
-        TimeDTO parsedTime = parser.parse(time);
+        TimeDTO parsedTime = TimeParser.parse(time);
 
         //then
         assertEquals("18", parsedTime.getHour());
@@ -44,10 +42,9 @@ public class TimeParserTest {
     public void shouldFailParseTimeForExampleNumbers() {
         //given
         String time = "184:32:17";
-        TimeParser parser = new TimeParser();
 
         //when
-        parser.parse(time);
+        TimeParser.parse(time);
     }
 
     @Test
@@ -55,10 +52,9 @@ public class TimeParserTest {
     public void shouldFailParseTimeForExampleLetters() {
         //given
         String time = "1A:32:17";
-        TimeParser parser = new TimeParser();
 
         //when
-        parser.parse(time);
+        TimeParser.parse(time);
     }
 
 }
