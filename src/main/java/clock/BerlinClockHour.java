@@ -25,8 +25,8 @@ public final class BerlinClockHour implements TimeConverter {
 
     private String switchOnRedLamps(Integer lapmsOn) {
         StringBuilder  lamps = new StringBuilder(LAMPS);
-        for(int i = 1; i <= LAMPS_SIZE; i++) {
-            lamps = LampSwitchManager.switchLampsForHours(i, lapmsOn, lamps);
+        for(int position = 1; position <= LAMPS_SIZE; position++) {
+            lamps = LampSwitchManager.switchLampsForHours(position, lapmsOn, lamps);
         }
         return lamps.toString();
     }

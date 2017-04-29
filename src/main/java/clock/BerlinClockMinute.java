@@ -25,16 +25,16 @@ public final class BerlinClockMinute implements TimeConverter {
 
     private String switchOnTopLamps(Integer topOnLamps) {
         StringBuilder  top = new StringBuilder(MINUTE_TOP_LAMPS);
-        for(int i = 1; i <= LAMPS_SIZE_FOR_MINUTES; i++) {
-            top = switchTopLampsForMinutes(i, topOnLamps, top);
+        for(int position = 1; position <= LAMPS_SIZE_FOR_MINUTES; position++) {
+            top = switchTopLampsForMinutes(position, topOnLamps, top);
         }
         return top.toString();
     }
 
     private String switchOnYellowLamps(Integer bottomOnLamps) {
         StringBuilder  bottom = new StringBuilder(LAMPS);
-        for(int i = 1; i <= LAMPS_SIZE; i++) {
-            bottom = switchBottomLampsForMinutes(i, bottomOnLamps, bottom);
+        for(int position = 1; position <= LAMPS_SIZE; position++) {
+            bottom = switchBottomLampsForMinutes(position, bottomOnLamps, bottom);
         }
         return bottom.toString();
     }
