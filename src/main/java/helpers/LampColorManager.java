@@ -26,7 +26,7 @@ public final class LampColorManager {
         return top;
     }
 
-    public static StringBuilder switchOffLamp(int currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static StringBuilder switchOffLamp(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
         if(canSwitchOffLamp(currPosition, topOnLamps)) {
             return switchLamp(currPosition, switchOffColor(), top);
         }
@@ -45,7 +45,7 @@ public final class LampColorManager {
         return currPosition <= lampsOn;
     }
 
-    private static boolean canSwitchOffLamp(int currPosition, Integer topOnLamps) {
+    private static boolean canSwitchOffLamp(Integer currPosition, Integer topOnLamps) {
         return !isRedColorLampForMinutes(currPosition, topOnLamps)
                 && !canSwitchOnLamp(currPosition, topOnLamps);
     }
