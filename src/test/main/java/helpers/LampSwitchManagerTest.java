@@ -110,18 +110,4 @@ public class LampSwitchManagerTest {
         assertEquals("OOOR", switchedLights.toString());
     }
 
-    @Test
-    public void switchBottomLampFor_23Hours() throws Exception {
-        //given
-        Integer countedMinutes = 23 / UNIT_PER_LAMP;
-        Integer position = 4;
-        StringBuilder  topLights = new StringBuilder(LAMPS);
-
-        //when
-        StringBuilder  switchedLights = switchLampsForHours(position, countedMinutes, topLights);
-
-        //then
-        assertEquals("OOOR", switchedLights.toString());
-    }
-
 }
