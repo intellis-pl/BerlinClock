@@ -7,33 +7,33 @@ public final class LampColorManager {
 
     public static StringBuilder switchRedLampForMinutes(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
         if(isRedColorLampForMinutes(currPosition, topOnLamps)) {
-            return switchLamp(currPosition, switchOnRedColor(), top);
+            return switchColorLamp(currPosition, switchOnRedColor(), top);
         }
         return top;
     }
 
-    public static StringBuilder switchYellowLamp(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static StringBuilder switchYellowLampForMinutes(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
         if(canSwitchOnLamp(currPosition, topOnLamps)) {
-            return switchLamp(currPosition, switchOnYellowColor(), top);
+            return switchColorLamp(currPosition, switchOnYellowColor(), top);
         }
         return top;
     }
 
     public static StringBuilder switchRedLampForHours(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
         if(canSwitchOnLamp(currPosition, topOnLamps)) {
-            return switchLamp(currPosition, switchOnRedColor(), top);
+            return switchColorLamp(currPosition, switchOnRedColor(), top);
         }
         return top;
     }
 
-    public static StringBuilder switchOffLamp(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static StringBuilder turnOffLamp(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
         if(canSwitchOffLamp(currPosition, topOnLamps)) {
-            return switchLamp(currPosition, switchOffColor(), top);
+            return switchColorLamp(currPosition, switchOffColor(), top);
         }
         return top;
     }
 
-    private static StringBuilder switchLamp(Integer currPosition, String lampColor, StringBuilder top) {
+    private static StringBuilder switchColorLamp(Integer currPosition, String lampColor, StringBuilder top) {
         return top.replace(currPosition - 1, currPosition, lampColor);
     }
 

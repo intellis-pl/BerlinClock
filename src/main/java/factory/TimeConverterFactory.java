@@ -8,8 +8,9 @@ import java.util.Map;
 
 
 public class TimeConverterFactory implements ITimeConverterFactory {
-    private static Map<TimeUnit, TimeConverter> clockMap;
-    static {
+    private Map<TimeUnit, TimeConverter> clockMap;
+
+    {
         clockMap = new HashMap<>();
         clockMap.put(TimeUnit.HOURS, new BerlinClockHour());
         clockMap.put(TimeUnit.MINUTES, new BerlinClockMinute());

@@ -10,16 +10,16 @@ public final class BerlinClockMinute implements TimeConverter {
 
     public String convertTime(String textMinute) {
         Integer minutes = Integer.parseInt(textMinute);
-        BerlinClockTimeDTO minutesResult = findMinutesPositions(minutes);
+        BerlinClockTimeDTO minutesResult = findPositionsForMinutes(minutes);
         return minutesResult.toString();
     }
 
-    private BerlinClockTimeDTO findMinutesPositions(Integer minutes) {
+    private BerlinClockTimeDTO findPositionsForMinutes(Integer minutes) {
         Integer topOnLamps = minutes / UNIT_PER_LAMP;
         Integer bottomOnLamps = minutes % UNIT_PER_LAMP;
 
         String topHour = switchOnTopLamps(topOnLamps);
-        String bottomHour = switchOnYellowLamps(bottomOnLamps);
+        String bottomHour = switchOnBottomLamps(bottomOnLamps);
         return new BerlinClockTimeDTO(topHour, bottomHour);
     }
 
@@ -31,7 +31,7 @@ public final class BerlinClockMinute implements TimeConverter {
         return top.toString();
     }
 
-    private String switchOnYellowLamps(Integer bottomOnLamps) {
+    private String switchOnBottomLamps(Integer bottomOnLamps) {
         StringBuilder  bottom = new StringBuilder(LAMPS);
         for(int position = 1; position <= LAMPS_SIZE; position++) {
             bottom = switchBottomLampsForMinutes(position, bottomOnLamps, bottom);

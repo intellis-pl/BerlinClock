@@ -10,11 +10,11 @@ public final class BerlinClockHour implements TimeConverter {
 
     public String convertTime(String textHour) {
         Integer hours = Integer.parseInt(textHour);
-        BerlinClockTimeDTO hoursResult = findHourPositions(hours);
+        BerlinClockTimeDTO hoursResult = findPositionsForHour(hours);
         return hoursResult.toString();
     }
 
-    private BerlinClockTimeDTO findHourPositions(Integer hours) {
+    private BerlinClockTimeDTO findPositionsForHour(Integer hours) {
         Integer topOnLamps = hours / UNIT_PER_LAMP;
         Integer bottomHourLamps = hours % UNIT_PER_LAMP;
 

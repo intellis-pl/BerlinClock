@@ -70,7 +70,7 @@ public class LampColorManagerTest {
         StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchYellowLamp(countedMinutes, 2,topLights);
+        StringBuilder  switchedLights = switchYellowLampForMinutes(countedMinutes, 2,topLights);
 
         //then
         assertEquals("OYOOOOOOOOO", switchedLights.toString());
@@ -140,7 +140,7 @@ public class LampColorManagerTest {
         StringBuilder  topLights = new StringBuilder("RRRRRRRRRRR");
 
         //when
-        StringBuilder  switchedLights = switchOffLamp(position, countedMinutes,topLights);
+        StringBuilder  switchedLights = turnOffLamp(position, countedMinutes,topLights);
 
         //then
         assertEquals("RRRRORRRRRR", switchedLights.toString());
