@@ -26,8 +26,8 @@ public class BerlinClock {
             LOGGER.info("\nBerlin Clock time format:");
             for(TimeUnit timeUnit : TimeUnit.values()) {
                 TimeConverter berlinClock = timeFactory.create(timeUnit);
-                LOGGER.info(
-                        berlinClock.convertTime(timeManager.getUnit(timeUnit)));
+                String timeValue = timeManager.getUnit(timeUnit);
+                LOGGER.info(berlinClock.convertTime(timeValue));
             }
         } catch (DateTimeException e) {
             LOGGER.error(e.getMessage());
