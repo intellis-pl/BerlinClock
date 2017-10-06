@@ -1,6 +1,7 @@
 package main.java.clock;
 
 
+import main.java.clock.position.AbstractBerlinClock;
 import main.java.clock.position.BerlinClockTopHour;
 import main.java.dto.BerlinClockTimeDTO;
 
@@ -16,7 +17,7 @@ public final class BerlinClockHour implements TimeConverter {
     }
 
     private BerlinClockTimeDTO switchRedLampsForHour(Integer hours) {
-        BerlinClockTopHour clock = new BerlinClockTopHour();
+        AbstractBerlinClock clock = new BerlinClockTopHour();
         Integer topOnLamps = hours / UNIT_PER_LAMP;
         Integer bottomHourLamps = hours % UNIT_PER_LAMP;
 
