@@ -1,8 +1,6 @@
 package main.java.builder;
 
-/**
- * Created by raval on 2017-10-06.
- */
+
 public class LampsBuilder {
     private final String lamps;
 
