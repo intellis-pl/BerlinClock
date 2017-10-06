@@ -12,7 +12,6 @@ public class LampColorManagerTest {
         //given
         Integer countedMinutes = 15 / UNIT_PER_LAMP;
         Integer position = 3;
-        StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
         String switchedLights = switchRedLampForMinutes(position, countedMinutes);
