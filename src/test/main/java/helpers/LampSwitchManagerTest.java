@@ -11,7 +11,7 @@ import static main.java.helpers.LampSwitchManager.switchTopLampsForMinutes;
 import static org.junit.Assert.assertEquals;
 
 
-public class LampSwitchManagerTest {
+public class LampSwitchManagerTest {/*
     @Test
     public void switchRedColorTopLampFor_45Minutes() throws Exception {
         //given
@@ -109,5 +109,5 @@ public class LampSwitchManagerTest {
         //then
         assertEquals("OOOR", switchedLights.toString());
     }
-
+*/
 }

@@ -5,36 +5,32 @@ import static main.java.config.LampColorConfig.*;
 
 public final class LampColorManager {
 
-    public static StringBuilder switchRedLampForMinutes(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static String switchRedLampForMinutes(Integer currPosition, Integer topOnLamps) {
         if(isRedColorLampForMinutes(currPosition, topOnLamps)) {
-            return switchColorLamp(currPosition, switchOnRedColor(), top);
+            return switchOnRedColor();
         }
-        return top;
+        return switchOffColor();
     }
 
-    public static StringBuilder switchYellowLampForMinutes(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static String switchYellowLampForMinutes(Integer currPosition, Integer topOnLamps) {
         if(canSwitchOnLamp(currPosition, topOnLamps)) {
-            return switchColorLamp(currPosition, switchOnYellowColor(), top);
+            return switchOnYellowColor();
         }
-        return top;
+        return switchOffColor();
     }
 
-    public static StringBuilder switchRedLampForHours(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static String switchRedLampForHours(Integer currPosition, Integer topOnLamps) {
         if(canSwitchOnLamp(currPosition, topOnLamps)) {
-            return switchColorLamp(currPosition, switchOnRedColor(), top);
+            return switchOnRedColor();
         }
-        return top;
+        return switchOffColor();
     }
 
-    public static StringBuilder turnOffLamp(Integer currPosition, Integer topOnLamps, StringBuilder  top) {
+    public static String turnOffLamp(Integer currPosition, Integer topOnLamps) {
         if(canSwitchOffLamp(currPosition, topOnLamps)) {
-            return switchColorLamp(currPosition, switchOffColor(), top);
+            return switchOffColor();
         }
-        return top;
-    }
-
-    private static StringBuilder switchColorLamp(Integer currPosition, String lampColor, StringBuilder top) {
-        return top.replace(currPosition - 1, currPosition, lampColor);
+        return "";
     }
 
     private static boolean isRedColorLampForMinutes(Integer currPosition, Integer lampsOn) {

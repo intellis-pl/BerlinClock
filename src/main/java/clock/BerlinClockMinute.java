@@ -2,11 +2,11 @@ package main.java.clock;
 
 
 import main.java.dto.BerlinClockTimeDTO;
+import main.java.helpers.LampSwitchManager;
 
-import static main.java.helpers.LampSwitchManager.*;
 import static main.java.config.LampConfig.*;
 
-public final class BerlinClockMinute implements TimeConverter {
+public final class BerlinClockMinute extends AbstractBerlinClock implements TimeConverter {
 
     public String convertTime(String textMinute) {
         Integer minutes = Integer.parseInt(textMinute);
@@ -18,26 +18,14 @@ public final class BerlinClockMinute implements TimeConverter {
         Integer topOnLamps = minutes / UNIT_PER_LAMP;
         Integer bottomOnLamps = minutes % UNIT_PER_LAMP;
 
-        String topHour = switchOnTopLamps(topOnLamps);
-        String bottomHour = switchOnBottomLamps(bottomOnLamps);
+        String topHour = switchOnLamps(topOnLamps, LAMPS_SIZE_FOR_MINUTES);
+        String bottomHour = switchOnBottomLamps(bottomOnLamps, LAMPS_SIZE);
         return new BerlinClockTimeDTO(topHour, bottomHour);
     }
 
-    private String switchOnTopLamps(Integer topOnLamps) {
-        StringBuilder  top = new StringBuilder(MINUTE_TOP_LAMPS);
-        for(int position = 1; position <= LAMPS_SIZE_FOR_MINUTES; position++) {
-            top = switchTopLampsForMinutes(position, topOnLamps, top);
-        }
-        return top.toString();
+
+    @Override
+    String switchLampsFor(Integer position, Integer lampsToSwitch) {
+        return LampSwitchManager.switchTopLampsForMinutes(position, lampsToSwitch);
     }
-
-    private String switchOnBottomLamps(Integer bottomOnLamps) {
-        StringBuilder  bottom = new StringBuilder(LAMPS);
-        for(int position = 1; position <= LAMPS_SIZE; position++) {
-            bottom = switchBottomLampsForMinutes(position, bottomOnLamps, bottom);
-        }
-        return bottom.toString();
-    }
-
-
 }

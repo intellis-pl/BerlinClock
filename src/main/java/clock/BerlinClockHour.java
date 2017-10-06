@@ -4,31 +4,28 @@ package main.java.clock;
 import main.java.dto.BerlinClockTimeDTO;
 import main.java.helpers.LampSwitchManager;
 
-import static main.java.config.LampConfig.*;
+import static main.java.config.LampConfig.LAMPS_SIZE;
+import static main.java.config.LampConfig.UNIT_PER_LAMP;
 
-public final class BerlinClockHour implements TimeConverter {
+public final class BerlinClockHour extends AbstractBerlinClock implements TimeConverter {
 
     public String convertTime(String textHour) {
         Integer hours = Integer.parseInt(textHour);
-        BerlinClockTimeDTO hoursResult = findPositionsForHour(hours);
+        BerlinClockTimeDTO hoursResult = switchRedLampsForHour(hours);
         return hoursResult.toString();
     }
 
-    private BerlinClockTimeDTO findPositionsForHour(Integer hours) {
+    private BerlinClockTimeDTO switchRedLampsForHour(Integer hours) {
         Integer topOnLamps = hours / UNIT_PER_LAMP;
         Integer bottomHourLamps = hours % UNIT_PER_LAMP;
 
-        String topHour = switchOnRedLamps(topOnLamps);
-        String bottomHour = switchOnRedLamps(bottomHourLamps);
+        String topHour = switchOnLamps(topOnLamps, LAMPS_SIZE);
+        String bottomHour = switchOnLamps(bottomHourLamps, LAMPS_SIZE);
         return new BerlinClockTimeDTO(topHour, bottomHour);
     }
 
-    private String switchOnRedLamps(Integer lapmsOn) {
-        StringBuilder  lamps = new StringBuilder(LAMPS);
-        for(int position = 1; position <= LAMPS_SIZE; position++) {
-            lamps = LampSwitchManager.switchLampsForHours(position, lapmsOn, lamps);
-        }
-        return lamps.toString();
+    @Override
+    String switchLampsFor(Integer position, Integer lampsToSwitch) {
+        return LampSwitchManager.switchLampsForHours(position, lampsToSwitch);
     }
-
 }

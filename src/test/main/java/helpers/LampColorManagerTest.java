@@ -15,10 +15,10 @@ public class LampColorManagerTest {
         StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForMinutes(position, countedMinutes,topLights);
+        String switchedLights = switchRedLampForMinutes(position, countedMinutes);
 
         //then
-        assertEquals("OOROOOOOOOO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -26,13 +26,12 @@ public class LampColorManagerTest {
         //given
         Integer countedMinutes = 30 / UNIT_PER_LAMP;
         Integer position = 6;
-        StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForMinutes(position, countedMinutes, topLights);
+        String  switchedLights = switchRedLampForMinutes(position, countedMinutes);
 
         //then
-        assertEquals("OOOOOROOOOO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -40,13 +39,12 @@ public class LampColorManagerTest {
         //given
         Integer countedMinutes = 45 / UNIT_PER_LAMP;
         Integer position = 9;
-        StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForMinutes(position, countedMinutes, topLights);
+        String  switchedLights = switchRedLampForMinutes(position, countedMinutes);
 
         //then
-        assertEquals("OOOOOOOOROO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -54,26 +52,24 @@ public class LampColorManagerTest {
         //given
         Integer countedMinutes = 40 / UNIT_PER_LAMP;
         Integer position = 8;
-        StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForMinutes(position, countedMinutes, topLights);
+        String switchedLights = switchRedLampForMinutes(position, countedMinutes);
 
         //then
-        assertEquals("OOOOOOOOOOO", switchedLights.toString());
+        assertEquals("O", switchedLights);
     }
 
     @Test
     public void switchOnYellowLampOnSecondPosition() {
         //given
         Integer countedMinutes = 2;
-        StringBuilder  topLights = new StringBuilder(MINUTE_TOP_LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchYellowLampForMinutes(countedMinutes, 2,topLights);
+        String  switchedLights = switchYellowLampForMinutes(countedMinutes, 2);
 
         //then
-        assertEquals("OYOOOOOOOOO", switchedLights.toString());
+        assertEquals("Y", switchedLights);
     }
 
     @Test
@@ -81,13 +77,12 @@ public class LampColorManagerTest {
         //given
         Integer countedHour = 7 / UNIT_PER_LAMP;
         Integer position = 1;
-        StringBuilder  topLights = new StringBuilder(LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForHours(position, countedHour,topLights);
+        String  switchedLights = switchRedLampForHours(position, countedHour);
 
         //then
-        assertEquals("ROOO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -95,13 +90,12 @@ public class LampColorManagerTest {
         //given
         Integer countedHour = 11 / UNIT_PER_LAMP;
         Integer position = 2;
-        StringBuilder  topLights = new StringBuilder(LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForHours(position, countedHour,topLights);
+        String  switchedLights = switchRedLampForHours(position, countedHour);
 
         //then
-        assertEquals("OROO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -109,13 +103,12 @@ public class LampColorManagerTest {
         //given
         Integer countedHour = 17 / UNIT_PER_LAMP;
         Integer position = 3;
-        StringBuilder  topLights = new StringBuilder(LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForHours(position, countedHour,topLights);
+        String  switchedLights = switchRedLampForHours(position, countedHour);
 
         //then
-        assertEquals("OORO", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -123,13 +116,12 @@ public class LampColorManagerTest {
         //given
         Integer countedHour = 23 / UNIT_PER_LAMP;
         Integer position = 4;
-        StringBuilder  topLights = new StringBuilder(LAMPS);
 
         //when
-        StringBuilder  switchedLights = switchRedLampForHours(position, countedHour,topLights);
+        String  switchedLights = switchRedLampForHours(position, countedHour);
 
         //then
-        assertEquals("OOOR", switchedLights.toString());
+        assertEquals("R", switchedLights);
     }
 
     @Test
@@ -137,13 +129,12 @@ public class LampColorManagerTest {
         //given
         Integer countedMinutes = 23 / UNIT_PER_LAMP;
         Integer position = 5;
-        StringBuilder  topLights = new StringBuilder("RRRRRRRRRRR");
 
         //when
-        StringBuilder  switchedLights = turnOffLamp(position, countedMinutes,topLights);
+        String  switchedLights = turnOffLamp(position, countedMinutes);
 
         //then
-        assertEquals("RRRRORRRRRR", switchedLights.toString());
+        assertEquals("O", switchedLights);
     }
 
 }
