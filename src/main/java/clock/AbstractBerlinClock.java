@@ -3,8 +3,6 @@ package main.java.clock;
 import main.java.builder.LampsBuilder;
 import main.java.helpers.LampSwitchManager;
 
-import static main.java.config.LampConfig.LAMPS_SIZE;
-
 /**
  * Created by raval on 2017-10-06.
  */
