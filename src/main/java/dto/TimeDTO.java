@@ -2,14 +2,14 @@ package main.java.dto;
 
 
 public class TimeDTO {
-    private final String hour;
-    private final String minute;
-    private final String second;
+    private String hour;
+    private String minute;
+    private String second;
 
-    private TimeDTO(Builder builder) {
-        this.hour = builder.hour;
-        this.minute = builder.minute;
-        this.second = builder.second;
+    public TimeDTO(String hour, String minute, String second) {
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
     }
 
     public String getHour() {
@@ -22,35 +22,5 @@ public class TimeDTO {
 
     public String getSecond() {
         return second;
-    }
-
-    public String toString() {
-        return hour + ":" + minute + ":" + second;
-    }
-
-    public static class Builder {
-        private String hour;
-        private String minute;
-        private String second;
-
-        public Builder appendHours(String hour) {
-            this.hour = hour;
-            return this;
-        }
-
-        public Builder appendMinutes(String minute) {
-            this.minute = minute;
-            return this;
-        }
-        public Builder appendSeconds(String second) {
-            this.second = second;
-            return this;
-        }
-
-        public TimeDTO build() {
-            return new TimeDTO(this);
-        }
-
-
     }
 }
