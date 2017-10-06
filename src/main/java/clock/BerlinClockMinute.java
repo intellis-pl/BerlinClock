@@ -2,7 +2,7 @@ package main.java.clock;
 
 
 import main.java.dto.BerlinClockTimeDTO;
-import main.java.helpers.LampSwitchManager;
+import main.java.helpers.LampSwitchForMinutesManager;
 
 import static main.java.config.LampConfig.*;
 
@@ -26,6 +26,6 @@ public final class BerlinClockMinute extends AbstractBerlinClock implements Time
 
     @Override
     String switchLampsFor(Integer position, Integer lampsToSwitch) {
-        return LampSwitchManager.switchTopLampsForMinutes(position, lampsToSwitch);
+        return LampSwitchForMinutesManager.switchTopLampsForMinutes(position, lampsToSwitch);
     }
 }

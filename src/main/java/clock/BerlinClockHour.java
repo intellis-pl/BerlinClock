@@ -2,10 +2,10 @@ package main.java.clock;
 
 
 import main.java.dto.BerlinClockTimeDTO;
-import main.java.helpers.LampSwitchManager;
 
 import static main.java.config.LampConfig.LAMPS_SIZE;
 import static main.java.config.LampConfig.UNIT_PER_LAMP;
+import static main.java.helpers.LampColorManager.switchRedLampForHours;
 
 public final class BerlinClockHour extends AbstractBerlinClock implements TimeConverter {
 
@@ -26,6 +26,6 @@ public final class BerlinClockHour extends AbstractBerlinClock implements TimeCo
 
     @Override
     String switchLampsFor(Integer position, Integer lampsToSwitch) {
-        return LampSwitchManager.switchLampsForHours(position, lampsToSwitch);
+        return switchRedLampForHours(position, lampsToSwitch);
     }
 }
