@@ -21,7 +21,6 @@ public final class BerlinClockHour implements TimeConverter {
         Integer topOnLamps = hours / UNIT_PER_LAMP;
         Integer bottomHourLamps = hours % UNIT_PER_LAMP;
 
-
         String topHour = clock.switchOnLamps(topOnLamps, LAMPS_SIZE);
         String bottomHour = clock.switchOnLamps(bottomHourLamps, LAMPS_SIZE);
         return new BerlinClockTimeDTO(topHour, bottomHour);
